@@ -1,4 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+<div id="one" class="stage">
+    <input id="fileInput" type="file" />
+    <button type="button">Load</button>
+</div>
+<div id="loadingPanel">
+    Loading Panel, displays after pressing load button 
+</div>
+<div id="dataDisplay">
+    <select id="filterDropdown">
+        <option value="all">All</option>
+    </select>
+    Data loaded will display here
+</div>
