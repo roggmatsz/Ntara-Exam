@@ -2,15 +2,16 @@
     ViewData["Title"] = "Home Page";
 }
 <div id="one" class="stage">
-    <input id="fileInput" type="file" />
-    <button type="button">Load</button>
+    <input id="fileInput" type="file" onchange="handleCsv(this.files)" />
 </div>
 <div id="loadingPanel">
     Loading Panel, displays after pressing load button 
 </div>
-<div id="dataDisplay">
+<div class="data-wrapper">
     <select id="filterDropdown">
         <option value="all">All</option>
     </select>
-    Data loaded will display here
+    <div id="dataDisplay">
+        Data loaded will display here
+    </div>
 </div>
