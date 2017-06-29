@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 function handleCsv(files) {
     csv = files[0];
-    if(csv.type.match('text.csv')) {
+    if(csv.name.match('.csv')) {
         var reader = new FileReader();
         reader.onload = function(event) {
             var container = document.getElementById('dataDisplay');
