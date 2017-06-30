@@ -1,17 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div id="one" class="stage">
+<div id="one" class="col-xs-12">
+    <h2>Upload a CSV</h2>
     <input id="fileInput" type="file" onchange="handleCsv(this.files)" />
 </div>
 <div id="loadingPanel">
     Loading Panel, displays after pressing load button 
 </div>
-<div class="data-wrapper">
+<div class="col-xs-12 data-wrapper">
     <select id="filterDropdown">
         <option value="all">All</option>
     </select>
-    <div id="dataDisplay">
-        Data loaded will display here
-    </div>
+    <table id="altTable" class="table table-striped">
+
+    </table>
 </div>

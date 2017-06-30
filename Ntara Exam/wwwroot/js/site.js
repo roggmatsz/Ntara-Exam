@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         window.alert('This page requires the File API. Looks like your browser lacks it =(');
     }
     var parsedCsv = null;
+    var parsedHeaders = null;
 });
 
 function handleCsv(files) {
@@ -12,10 +13,37 @@ function handleCsv(files) {
     if(csv.name.match('.csv')) {
         var reader = new FileReader();
         reader.onload = function(event) {
-            var container = document.getElementById('dataDisplay');
-            container.innerText = event.target.result;
             parsedCsv = $.csv.toArrays(event.target.result);
+            parsedHeaders = parsedCsv[0];
+            renderTable(parsedCsv, parsedHeaders);
+
+
         }
         reader.readAsText(csv);
     }
+}
+
+function renderTable(data, headers) {
+    var table = document.getElementById('altTable');
+    table.appendChild(makeHeaders(headers));
+    for (var i = 1; i < data.length; i++) {
+        var row = document.createElement('tr');
+        for (var j = 0; j < data[i].length; j++) {
+            var node = document.createElement('td');
+            node.innerText = data[i][j];
+            row.appendChild(node);
+        }
+        table.appendChild(row);
+    }
+}
+
+function makeHeaders(headers) {
+    var root = document.createElement('tr');
+    for (var i = 0; i < headers.length; i++) {
+        var node = document.createElement('th');
+        node.innerText = headers[i];
+        root.appendChild(node);
+    }
+
+    return root;
 }
