@@ -16,11 +16,16 @@ function handleCsv(files) {
             parsedCsv = $.csv.toArrays(event.target.result);
             parsedHeaders = parsedCsv[0];
             renderTable(parsedCsv, parsedHeaders);
-
-
+            updateDOM();
         }
         reader.readAsText(csv);
     }
+}
+
+function updateDOM() {
+    document.getElementById('headline').innerText = "Search Away";
+    document.getElementById('data-wrapper').style.display = 'table';
+    document.getElementById('fileInput').style.display = 'none';
 }
 
 function renderTable(data, headers) {
