@@ -6,3 +6,11 @@
     padding: 50px 0;
 }
 #data-wrapper {display: none;}
+.results {
+    background-color: blanchedalmond;
+    font-weight: bold;
+    color: #bf6004;
+}
+.wrapper {
+    padding-bottom: 30px;
+}
